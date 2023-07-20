@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/get_color.dart';
 
-
 class Days extends StatefulWidget {
   Days({
     Key? key,
@@ -25,8 +24,7 @@ class _DaysState extends State<Days> {
   @override
   Widget build(BuildContext context) {
     Color? color = widget.colors != null ? GetColor.getColor(widget.colors!) : null;
-
-    if (widget.data != null && widget.data.length >= 2) {   /////////////////////////
+    
       return Container(
         padding: EdgeInsets.symmetric(
           vertical: 20,
@@ -70,10 +68,5 @@ class _DaysState extends State<Days> {
           ],
         ),
       );
-    } else {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    }
-  }
+   }
 }
