@@ -107,7 +107,6 @@ class _HomePageState extends State<HomePage> {
                                         _weatherState.setLatitude(latitude);
                                         _weatherState.setLongitude(longitude);
                                       },
-                                      // weatherState: _weatherState,
                                     ),
                                   ),
                                 );
@@ -202,26 +201,26 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Row(
+                  Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Text(
-                        '7 Days',
-                        style: TextStyle(
+                        '${_weatherState.data?.listDays.length} Days',
+                        style: const TextStyle(
                           color: Color(0xff48738D),
                           fontSize: 18,
                         ),
                       ),
-                      Spacer(),
-                      Icon(
+                      const Spacer(),
+                      const Icon(
                         Icons.arrow_forward_ios,
                         weight: 10,
                         color: Color(0xff48738D),
                         size: 16,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                     ],
@@ -241,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                         controller: _weatherState.scrollController,
                         scrollDirection: Axis.horizontal,
                         reverse: false,
-                        itemCount: 7,
+                        itemCount: _weatherState.data?.listDays.length,
                         itemBuilder: (BuildContext context, int index) {
                           var currentDate = dayInfo.add(
                             Duration(days: index),
