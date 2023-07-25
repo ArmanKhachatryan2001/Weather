@@ -17,12 +17,11 @@ class WeatherModel {
   });
 
   WeatherModel.fromJson(Map<String, dynamic> json) {
-    listDays = List.generate(7, (_) => []);
+    listDays = [];
     List<String> tmp;
     var tmpTime = json['location']['localtime'];
     tmpTime = int.parse(tmpTime.split(' ')[1].split(':')[0]);
 
-    int index = 0;
     int countTime = 0;
     for (var forecastDay in json['forecast']['forecastday']) {
       for (var hour in forecastDay['hour']) {
@@ -37,8 +36,7 @@ class WeatherModel {
         tmp.add(temp.toString());
         tmp.add(icon);
         tmp.add(date);
-        listDays[index].addAll(tmp);
-        index++;
+        listDays.add(tmp);
         break;
       }
       countTime = 0;
